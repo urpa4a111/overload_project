@@ -1,0 +1,39 @@
+print("What is your company name?")
+name_of_the_company = input()
+truck_weight = 7.5
+trailer_weight = 7
+max_allowed_weight = 40
+max_allowed_weight_first_os = 11.5
+
+print("The cargo weight is (in tons!): ")
+cargo_weight = float(input())
+print("Which years you are in the business?")
+years = int(input())
+total_weight = 0
+fuel_tanks = 0
+weight_of_the_first_os = 0
+
+if years <= 1:
+    fuel_tanks = 0.9
+    total_weight = (truck_weight + trailer_weight + cargo_weight + fuel_tanks) * 0.95
+elif years == 2:
+    fuel_tanks = 1.1
+    total_weight = (truck_weight + trailer_weight + cargo_weight + fuel_tanks) * 0.95
+elif years >= 3:
+    fuel_tanks = 1.27
+    total_weight = (truck_weight + trailer_weight + cargo_weight + fuel_tanks) * 0.95
+
+if total_weight > max_allowed_weight:
+
+    print("With apologise we need to refuse your offer for the Cargo!")
+    print(f"Best regards: {name_of_the_company}")
+
+else:
+    weight_of_the_first_os = (truck_weight / 2) + fuel_tanks
+    alloweed_weight_info_driver = (max_allowed_weight_first_os - weight_of_the_first_os) * 0.90
+
+    print("With regards we accept to load your cargo!")
+    print(f"Total weight of the composition is: {total_weight:.2f} tons!")
+    print(
+        f"Info for the driver is to not load more than {alloweed_weight_info_driver:.2f} tons on the first part of the trailer!")
+    print(f"Best regards: {name_of_the_company}")
